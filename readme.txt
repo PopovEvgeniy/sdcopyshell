@@ -2,11 +2,11 @@
 
                     Created by Popov Evgeniy Alekseyevich
 
-                             Version 0.4
+                             Version 0.5
 
 System requirement
 
-Windows 98 or higher
+Windows 2000 or higher
 
 Program description
 
@@ -24,9 +24,10 @@ You can send me a letter to tuzik87@inbox.ru
 About program modification
 
 Source code is included in source.zip archive.
-It can be compiled under Lazarus 1.4.4 or higher.
+It can be compiled under Lazarus 1.6.4 or higher.
 
 Change log
 
 0.1 - Initial version
 0.2 - 0.4 - Small changes in source code
+0.5 - Small changes. Windows 9x support was dropped
