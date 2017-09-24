@@ -2,7 +2,7 @@
 
                     Created by Popov Evgeniy Alekseyevich
 
-                             Version 0.5
+                             Version 0.5.0.1
 
 System requirement
 
@@ -15,7 +15,7 @@ Put executable file of SIMPLE DATA COPIER to SIMPLE DATA COPIER SHELL directory 
 
 License
 
-This program distrubuted under GNU GENERAL PUBLIC LICENSE.
+This program distributed under GNU GENERAL PUBLIC LICENSE.
 
 Contact
 
@@ -31,3 +31,4 @@ Change log
 0.1 - Initial version
 0.2 - 0.4 - Small changes in source code
 0.5 - Small changes. Windows 9x support was dropped
+0.5.0.1 – Documentation was updated.
