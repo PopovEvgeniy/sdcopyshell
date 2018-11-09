@@ -85,7 +85,7 @@ end;
 procedure window_setup();
 begin
  Application.Title:='SIMPLE DATA COPIER SHELL';
- Form1.Caption:='SIMPLE DATA COPIER SHELL 0.5';
+ Form1.Caption:='SIMPLE DATA COPIER SHELL 0.5.0.2';
  Form1.BorderStyle:=bsDialog;
  Form1.Font.Name:=Screen.MenuFont.Name;
  Form1.Font.Size:=14;
