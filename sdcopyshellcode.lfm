@@ -67,7 +67,6 @@ object Form1: TForm1
     LabelPosition = lpLeft
     TabOrder = 2
     OnChange = LabeledEdit3Change
-    OnKeyPress = LabeledEdit3KeyPress
   end
   object LabeledEdit4: TLabeledEdit
     Left = 208
@@ -88,7 +87,6 @@ object Form1: TForm1
     LabelPosition = lpLeft
     TabOrder = 3
     OnChange = LabeledEdit4Change
-    OnKeyPress = LabeledEdit4KeyPress
   end
   object LabeledEdit5: TLabeledEdit
     Left = 200
@@ -108,7 +106,6 @@ object Form1: TForm1
     EditLabel.ParentColor = False
     LabelPosition = lpLeft
     TabOrder = 4
-    OnKeyPress = LabeledEdit5KeyPress
   end
   object Button1: TButton
     Left = 336

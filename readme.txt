@@ -2,7 +2,7 @@
 
                     This software made by Popov Evgeniy Alekseyevich
 
-                             Version 0.5.0.2
+                             Version 0.5.2
 
 System requirement
 
@@ -30,7 +30,8 @@ It can be compiled under Lazarus 1.8.4 or higher.
 Change log
 
 0.1 - Initial version
-0.2 - 0.4 - Small changes in source code
+0.2 - 0.4 - Small changes
 0.5 - Small changes. Windows 9x support was dropped
 0.5.0.1 – Documentation was updated
 0.5.0.2 - 64 bit system support was added
+0.5.1 - 0.5.2 - Small changes
