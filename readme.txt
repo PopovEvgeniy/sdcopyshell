@@ -2,7 +2,7 @@
 
                     This software made by Popov Evgeniy Alekseyevich
 
-                             Version 0.5.2
+                             Version 0.5.3
 
 System requirement
 
@@ -34,4 +34,4 @@ Change log
 0.5 - Small changes. Windows 9x support was dropped
 0.5.0.1 – Documentation was updated
 0.5.0.2 - 64 bit system support was added
-0.5.1 - 0.5.2 - Small changes
+0.5.1 - 0.5.3 - Small changes

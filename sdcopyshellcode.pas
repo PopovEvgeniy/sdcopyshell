@@ -47,7 +47,6 @@ procedure interface_setup();
 procedure language_setup();
 procedure set_default();
 procedure do_job(source:string;target:string;buffer:string;start:string;stop:string);
-function check_input(input:string):Boolean;
 
 implementation
 
@@ -82,7 +81,7 @@ end;
 procedure window_setup();
 begin
  Application.Title:='SIMPLE DATA COPIER SHELL';
- Form1.Caption:='SIMPLE DATA COPIER SHELL 0.5.2';
+ Form1.Caption:='SIMPLE DATA COPIER SHELL 0.5.3';
  Form1.BorderStyle:=bsDialog;
  Form1.Font.Name:=Screen.MenuFont.Name;
  Form1.Font.Size:=14;
@@ -158,17 +157,6 @@ end;
 
 end;
 
-function check_input(input:string):Boolean;
-var target:Boolean;
-begin
-target:=True;
-if input='' then
-begin
-target:=False;
-end;
-check_input:=target;
-end;
-
 {$R *.lfm}
 
 { TForm1 }
@@ -184,22 +172,22 @@ end;
 
 procedure TForm1.LabeledEdit1Change(Sender: TObject);
 begin
-Form1.Button3.Enabled:=check_input(Form1.LabeledEdit1.Text) and check_input(Form1.LabeledEdit2.Text) and check_input(Form1.LabeledEdit3.Text) and check_input(Form1.LabeledEdit4.Text);
+Form1.Button3.Enabled:=(Form1.LabeledEdit1.Text<>'') and (Form1.LabeledEdit2.Text<>'') and (Form1.LabeledEdit3.Text<>'') and (Form1.LabeledEdit4.Text<>'');
 end;
 
 procedure TForm1.LabeledEdit2Change(Sender: TObject);
 begin
-Form1.Button3.Enabled:=check_input(Form1.LabeledEdit1.Text) and check_input(Form1.LabeledEdit2.Text) and check_input(Form1.LabeledEdit3.Text) and check_input(Form1.LabeledEdit4.Text);
+Form1.Button3.Enabled:=(Form1.LabeledEdit1.Text<>'') and (Form1.LabeledEdit2.Text<>'') and (Form1.LabeledEdit3.Text<>'') and (Form1.LabeledEdit4.Text<>'');
 end;
 
 procedure TForm1.LabeledEdit3Change(Sender: TObject);
 begin
-Form1.Button3.Enabled:=check_input(Form1.LabeledEdit1.Text) and check_input(Form1.LabeledEdit2.Text) and check_input(Form1.LabeledEdit3.Text) and check_input(Form1.LabeledEdit4.Text);
+Form1.Button3.Enabled:=(Form1.LabeledEdit1.Text<>'') and (Form1.LabeledEdit2.Text<>'') and (Form1.LabeledEdit3.Text<>'') and (Form1.LabeledEdit4.Text<>'');
 end;
 
 procedure TForm1.LabeledEdit4Change(Sender: TObject);
 begin
-Form1.Button3.Enabled:=check_input(Form1.LabeledEdit1.Text) and check_input(Form1.LabeledEdit2.Text) and check_input(Form1.LabeledEdit3.Text) and check_input(Form1.LabeledEdit4.Text);
+Form1.Button3.Enabled:=(Form1.LabeledEdit1.Text<>'') and (Form1.LabeledEdit2.Text<>'') and (Form1.LabeledEdit3.Text<>'') and (Form1.LabeledEdit4.Text<>'');
 end;
 
 procedure TForm1.Button1Click(Sender: TObject);
