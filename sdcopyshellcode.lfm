@@ -7,21 +7,14 @@ object Form1: TForm1
   ClientHeight = 245
   ClientWidth = 419
   OnCreate = FormCreate
-  LCLVersion = '1.8.4.0'
+  LCLVersion = '2.0.10.0'
   object LabeledEdit1: TLabeledEdit
     Left = 96
-    Height = 21
+    Height = 23
     Top = 12
     Width = 224
-    EditLabel.AnchorSideTop.Control = LabeledEdit1
-    EditLabel.AnchorSideTop.Side = asrCenter
-    EditLabel.AnchorSideRight.Control = LabeledEdit1
-    EditLabel.AnchorSideBottom.Control = LabeledEdit1
-    EditLabel.AnchorSideBottom.Side = asrBottom
-    EditLabel.Left = 32
-    EditLabel.Height = 13
-    EditLabel.Top = 16
-    EditLabel.Width = 61
+    EditLabel.Height = 15
+    EditLabel.Width = 67
     EditLabel.Caption = 'LabeledEdit1'
     EditLabel.ParentColor = False
     LabelPosition = lpLeft
@@ -30,18 +23,11 @@ object Form1: TForm1
   end
   object LabeledEdit2: TLabeledEdit
     Left = 96
-    Height = 21
+    Height = 23
     Top = 48
     Width = 224
-    EditLabel.AnchorSideTop.Control = LabeledEdit2
-    EditLabel.AnchorSideTop.Side = asrCenter
-    EditLabel.AnchorSideRight.Control = LabeledEdit2
-    EditLabel.AnchorSideBottom.Control = LabeledEdit2
-    EditLabel.AnchorSideBottom.Side = asrBottom
-    EditLabel.Left = 32
-    EditLabel.Height = 13
-    EditLabel.Top = 52
-    EditLabel.Width = 61
+    EditLabel.Height = 15
+    EditLabel.Width = 67
     EditLabel.Caption = 'LabeledEdit2'
     EditLabel.ParentColor = False
     LabelPosition = lpLeft
@@ -50,18 +36,11 @@ object Form1: TForm1
   end
   object LabeledEdit3: TLabeledEdit
     Left = 240
-    Height = 21
+    Height = 23
     Top = 88
     Width = 48
-    EditLabel.AnchorSideTop.Control = LabeledEdit3
-    EditLabel.AnchorSideTop.Side = asrCenter
-    EditLabel.AnchorSideRight.Control = LabeledEdit3
-    EditLabel.AnchorSideBottom.Control = LabeledEdit3
-    EditLabel.AnchorSideBottom.Side = asrBottom
-    EditLabel.Left = 176
-    EditLabel.Height = 13
-    EditLabel.Top = 92
-    EditLabel.Width = 61
+    EditLabel.Height = 15
+    EditLabel.Width = 67
     EditLabel.Caption = 'LabeledEdit3'
     EditLabel.ParentColor = False
     LabelPosition = lpLeft
@@ -70,18 +49,11 @@ object Form1: TForm1
   end
   object LabeledEdit4: TLabeledEdit
     Left = 208
-    Height = 21
+    Height = 23
     Top = 128
     Width = 200
-    EditLabel.AnchorSideTop.Control = LabeledEdit4
-    EditLabel.AnchorSideTop.Side = asrCenter
-    EditLabel.AnchorSideRight.Control = LabeledEdit4
-    EditLabel.AnchorSideBottom.Control = LabeledEdit4
-    EditLabel.AnchorSideBottom.Side = asrBottom
-    EditLabel.Left = 144
-    EditLabel.Height = 13
-    EditLabel.Top = 132
-    EditLabel.Width = 61
+    EditLabel.Height = 15
+    EditLabel.Width = 67
     EditLabel.Caption = 'LabeledEdit4'
     EditLabel.ParentColor = False
     LabelPosition = lpLeft
@@ -90,18 +62,11 @@ object Form1: TForm1
   end
   object LabeledEdit5: TLabeledEdit
     Left = 200
-    Height = 21
+    Height = 23
     Top = 168
     Width = 208
-    EditLabel.AnchorSideTop.Control = LabeledEdit5
-    EditLabel.AnchorSideTop.Side = asrCenter
-    EditLabel.AnchorSideRight.Control = LabeledEdit5
-    EditLabel.AnchorSideBottom.Control = LabeledEdit5
-    EditLabel.AnchorSideBottom.Side = asrBottom
-    EditLabel.Left = 136
-    EditLabel.Height = 13
-    EditLabel.Top = 172
-    EditLabel.Width = 61
+    EditLabel.Height = 15
+    EditLabel.Width = 67
     EditLabel.Caption = 'LabeledEdit5'
     EditLabel.ParentColor = False
     LabelPosition = lpLeft
@@ -133,11 +98,12 @@ object Form1: TForm1
     TabOrder = 7
   end
   object OpenDialog1: TOpenDialog
-    left = 24
-    top = 152
+    Left = 24
+    Top = 152
   end
   object SaveDialog1: TSaveDialog
-    left = 24
-    top = 88
+    OnCanClose = SaveDialog1CanClose
+    Left = 24
+    Top = 88
   end
 end
