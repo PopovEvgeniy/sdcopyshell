@@ -6,7 +6,7 @@ interface
 
 uses
   Classes, SysUtils,LCLType ,FileUtil, Forms, Controls, Graphics, Dialogs, ExtCtrls,
-  StdCtrls, LazUTF8;
+  StdCtrls;
 
 type
 
@@ -72,7 +72,7 @@ function execute_program(executable:string;argument:string):Integer;
 var code:Integer;
 begin
  try
-  code:=ExecuteProcess(UTF8ToWinCP(executable),UTF8ToWinCP(argument),[]);
+  code:=ExecuteProcess(executable,argument,[]);
  except
   On EOSError do code:=-1;
  end;
@@ -82,7 +82,7 @@ end;
 procedure window_setup();
 begin
  Application.Title:='SIMPLE DATA COPIER SHELL';
- Form1.Caption:='SIMPLE DATA COPIER SHELL 0.5.4';
+ Form1.Caption:='SIMPLE DATA COPIER SHELL 0.5.5';
  Form1.BorderStyle:=bsDialog;
  Form1.Font.Name:=Screen.MenuFont.Name;
  Form1.Font.Size:=14;

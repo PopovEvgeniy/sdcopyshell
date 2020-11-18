@@ -2,7 +2,7 @@
 
                     This software made by Popov Evgeniy Alekseyevich
 
-                             Version 0.5.4
+                             Version 0.5.5
 
 System requirement
 
@@ -35,3 +35,4 @@ Change log
 0.5.0.1 – Documentation was updated
 0.5.0.2 - 64 bit system support was added
 0.5.1 - 0.5.4 - Small changes
+0.5.5 - Small bug was fixed
