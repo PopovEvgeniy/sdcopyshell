@@ -62,8 +62,7 @@ begin
  target:=source;
  if Pos(' ',source)>0 then
  begin
-  target:='"';
-  target:=target+source+'"';
+  target:='"'+source+'"';
  end;
  convert_file_name:=target;
 end;
@@ -82,7 +81,7 @@ end;
 procedure window_setup();
 begin
  Application.Title:='SIMPLE DATA COPIER SHELL';
- Form1.Caption:='SIMPLE DATA COPIER SHELL 0.5.5';
+ Form1.Caption:='SIMPLE DATA COPIER SHELL 0.5.6';
  Form1.BorderStyle:=bsDialog;
  Form1.Font.Name:=Screen.MenuFont.Name;
  Form1.Font.Size:=14;
@@ -141,21 +140,18 @@ end;
 
 procedure do_job(source:string;target:string;buffer:string;start:string;stop:string);
 var messages:array[0..12] of string=('Operation successfully complete','Can not open input file','Can not create or open output file','Can not allocate memory','Can not decode argument','Buffer length is too small','Buffer length is too big','Input files with zero length not supported','Invalid offset','Invalid start offset! Minimal start offset:1','Can not jump to start offset','Can not read data','Can not write data');
-var message:SmallInt;
-var host,job:string;
+var id:SmallInt;
+var host,job,message:string;
 begin
+ message:='Can not execute a external program';
  host:=get_path()+'sdcopy';
  job:=convert_file_name(source)+' '+convert_file_name(target)+' '+buffer+' '+start+' '+stop;
- message:=execute_program(host,job);
- if message<0 then
+ id:=execute_program(host,job);
+ if id>=0 then
  begin
-  ShowMessage('Can not execute a external program');
- end
- else
- begin
-  ShowMessage(messages[message]);
+  message:=messages[id];
  end;
-
+ ShowMessage(message);
 end;
 
 {$R *.lfm}

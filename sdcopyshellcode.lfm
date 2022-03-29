@@ -7,7 +7,7 @@ object Form1: TForm1
   ClientHeight = 245
   ClientWidth = 419
   OnCreate = FormCreate
-  LCLVersion = '2.0.10.0'
+  LCLVersion = '2.2.0.4'
   object LabeledEdit1: TLabeledEdit
     Left = 96
     Height = 23
@@ -16,7 +16,6 @@ object Form1: TForm1
     EditLabel.Height = 15
     EditLabel.Width = 67
     EditLabel.Caption = 'LabeledEdit1'
-    EditLabel.ParentColor = False
     LabelPosition = lpLeft
     TabOrder = 0
     OnChange = LabeledEdit1Change
@@ -29,7 +28,6 @@ object Form1: TForm1
     EditLabel.Height = 15
     EditLabel.Width = 67
     EditLabel.Caption = 'LabeledEdit2'
-    EditLabel.ParentColor = False
     LabelPosition = lpLeft
     TabOrder = 1
     OnChange = LabeledEdit2Change
@@ -42,7 +40,6 @@ object Form1: TForm1
     EditLabel.Height = 15
     EditLabel.Width = 67
     EditLabel.Caption = 'LabeledEdit3'
-    EditLabel.ParentColor = False
     LabelPosition = lpLeft
     TabOrder = 2
     OnChange = LabeledEdit3Change
@@ -55,7 +52,6 @@ object Form1: TForm1
     EditLabel.Height = 15
     EditLabel.Width = 67
     EditLabel.Caption = 'LabeledEdit4'
-    EditLabel.ParentColor = False
     LabelPosition = lpLeft
     TabOrder = 3
     OnChange = LabeledEdit4Change
@@ -68,7 +64,6 @@ object Form1: TForm1
     EditLabel.Height = 15
     EditLabel.Width = 67
     EditLabel.Caption = 'LabeledEdit5'
-    EditLabel.ParentColor = False
     LabelPosition = lpLeft
     TabOrder = 4
   end
