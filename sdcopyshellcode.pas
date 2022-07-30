@@ -39,15 +39,6 @@ type
   end;
 
 var Form1: TForm1;
-function get_path():string;
-function convert_file_name(source:string):string;
-function execute_program(executable:string;argument:string):Integer;
-procedure window_setup();
-procedure dialog_setup();
-procedure interface_setup();
-procedure language_setup();
-procedure set_default();
-procedure do_job(source:string;target:string;buffer:string;start:string;stop:string);
 
 implementation
 
@@ -73,7 +64,7 @@ begin
  try
   code:=ExecuteProcess(executable,argument,[]);
  except
-  On EOSError do code:=-1;
+  code:=-1;
  end;
  execute_program:=code;
 end;
@@ -81,7 +72,7 @@ end;
 procedure window_setup();
 begin
  Application.Title:='SIMPLE DATA COPIER SHELL';
- Form1.Caption:='SIMPLE DATA COPIER SHELL 0.5.6';
+ Form1.Caption:='SIMPLE DATA COPIER SHELL 0.5.7';
  Form1.BorderStyle:=bsDialog;
  Form1.Font.Name:=Screen.MenuFont.Name;
  Form1.Font.Size:=14;
