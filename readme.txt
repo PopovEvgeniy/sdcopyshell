@@ -2,7 +2,7 @@
 
                     This software made by Popov Evgeniy Alekseyevich
 
-                             Version 0.5.7.1
+                             Version 0.5.8
 
 System requirement
 
@@ -12,7 +12,7 @@ Windows Vista or higher for 64-bit system
 Program description
 
 This program is a graphic shell for SIMPLE DATA COPIER.
-Put executable file of SIMPLE DATA COPIER to SIMPLE DATA COPIER SHELL directory before first start.
+Put the executable file of SIMPLE DATA COPIER to SIMPLE DATA COPIER SHELL directory before first start.
 
 License
 
@@ -38,3 +38,4 @@ Change log
 0.5.5 - Small bug fixed
 0.5.6 - 0.5.7 - Small changes
 0.5.7.1 – Documentation updated
+0.5.8 - Small changes

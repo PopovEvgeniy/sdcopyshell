@@ -72,7 +72,7 @@ end;
 procedure window_setup();
 begin
  Application.Title:='SIMPLE DATA COPIER SHELL';
- Form1.Caption:='SIMPLE DATA COPIER SHELL 0.5.7';
+ Form1.Caption:='SIMPLE DATA COPIER SHELL 0.5.8';
  Form1.BorderStyle:=bsDialog;
  Form1.Font.Name:=Screen.MenuFont.Name;
  Form1.Font.Size:=14;
@@ -129,12 +129,21 @@ begin
  Form1.LabeledEdit5.Text:='';
 end;
 
+procedure setup();
+begin
+ window_setup();
+ dialog_setup();
+ interface_setup();
+ language_setup();
+ set_default();
+end;
+
 procedure do_job(source:string;target:string;buffer:string;start:string;stop:string);
 var messages:array[0..12] of string=('Operation successfully complete','Can not open input file','Can not create or open output file','Can not allocate memory','Can not decode argument','Buffer length is too small','Buffer length is too big','Input files with zero length not supported','Invalid offset','Invalid start offset! Minimal start offset:1','Can not jump to start offset','Can not read data','Can not write data');
 var id:SmallInt;
 var host,job,message:string;
 begin
- message:='Can not execute a external program';
+ message:='Can not execute an external program';
  host:=get_path()+'sdcopy';
  job:=convert_file_name(source)+' '+convert_file_name(target)+' '+buffer+' '+start+' '+stop;
  id:=execute_program(host,job);
@@ -151,11 +160,7 @@ end;
 
 procedure TForm1.FormCreate(Sender: TObject);
 begin
- window_setup();
- dialog_setup();
- interface_setup();
- language_setup();
- set_default();
+ setup();
 end;
 
 procedure TForm1.LabeledEdit1Change(Sender: TObject);
