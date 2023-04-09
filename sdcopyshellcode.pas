@@ -5,8 +5,8 @@ unit sdcopyshellcode;
 interface
 
 uses
-  Classes, SysUtils,LCLType ,FileUtil, Forms, Controls, Graphics, Dialogs, ExtCtrls,
-  StdCtrls;
+  Classes, SysUtils,LCLType, Forms, Controls, Graphics, Dialogs, ExtCtrls,
+  StdCtrls, LazFileUtils;
 
 type
 
@@ -42,12 +42,7 @@ var Form1: TForm1;
 
 implementation
 
-function get_path():string;
-begin
- get_path:=ExtractFilePath(Application.ExeName);
-end;
-
-function convert_file_name(source:string):string;
+function convert_file_name(const source:string):string;
 var target:string;
 begin
  target:=source;
@@ -58,7 +53,7 @@ begin
  convert_file_name:=target;
 end;
 
-function execute_program(executable:string;argument:string):Integer;
+function execute_program(const executable:string;const argument:string):Integer;
 var code:Integer;
 begin
  try
@@ -69,10 +64,26 @@ begin
  execute_program:=code;
 end;
 
+procedure do_job(const source:string;const target:string;const buffer:string;const start:string;const stop:string);
+var messages:array[0..12] of string=('Operation successfully complete','Can not open input file','Can not create or open output file','Can not allocate memory','Can not decode argument','Buffer length is too small','Buffer length is too big','Input files with zero length not supported','Invalid offset','Invalid start offset! Minimal start offset:1','Can not jump to start offset','Can not read data','Can not write data');
+var id:SmallInt;
+var host,job,message:string;
+begin
+ message:='Can not execute an external program';
+ host:=ExtractFilePath(Application.ExeName)+'sdcopy.exe';
+ job:=convert_file_name(source)+' '+convert_file_name(target)+' '+buffer+' '+start+' '+stop;
+ id:=execute_program(host,job);
+ if id>=0 then
+ begin
+  message:=messages[id];
+ end;
+ ShowMessage(message);
+end;
+
 procedure window_setup();
 begin
  Application.Title:='SIMPLE DATA COPIER SHELL';
- Form1.Caption:='SIMPLE DATA COPIER SHELL 0.5.8';
+ Form1.Caption:='SIMPLE DATA COPIER SHELL 0.5.9';
  Form1.BorderStyle:=bsDialog;
  Form1.Font.Name:=Screen.MenuFont.Name;
  Form1.Font.Size:=14;
@@ -136,22 +147,6 @@ begin
  interface_setup();
  language_setup();
  set_default();
-end;
-
-procedure do_job(source:string;target:string;buffer:string;start:string;stop:string);
-var messages:array[0..12] of string=('Operation successfully complete','Can not open input file','Can not create or open output file','Can not allocate memory','Can not decode argument','Buffer length is too small','Buffer length is too big','Input files with zero length not supported','Invalid offset','Invalid start offset! Minimal start offset:1','Can not jump to start offset','Can not read data','Can not write data');
-var id:SmallInt;
-var host,job,message:string;
-begin
- message:='Can not execute an external program';
- host:=get_path()+'sdcopy';
- job:=convert_file_name(source)+' '+convert_file_name(target)+' '+buffer+' '+start+' '+stop;
- id:=execute_program(host,job);
- if id>=0 then
- begin
-  message:=messages[id];
- end;
- ShowMessage(message);
 end;
 
 {$R *.lfm}
