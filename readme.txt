@@ -2,7 +2,7 @@
 
                     This software made by Popov Evgeniy Alekseyevich
 
-                             Version 0.5.9
+                             Version 0.6
 
 System requirement
 
@@ -38,4 +38,4 @@ Change log
 0.5.5 - Small bug fixed
 0.5.6 - 0.5.7 - Small changes
 0.5.7.1 – Documentation updated
-0.5.8 - 0.5.9 - Small changes
+0.5.8 - 0.6 - Small changes

@@ -5,7 +5,7 @@ unit sdcopyshellcode;
 interface
 
 uses
-  Classes, SysUtils,LCLType, Forms, Controls, Graphics, Dialogs, ExtCtrls,
+  Classes, SysUtils, Forms, Controls, Graphics, Dialogs, ExtCtrls,
   StdCtrls, LazFileUtils;
 
 type
@@ -31,7 +31,6 @@ type
     procedure LabeledEdit2Change(Sender: TObject);
     procedure LabeledEdit3Change(Sender: TObject);
     procedure LabeledEdit4Change(Sender: TObject);
-    procedure SaveDialog1CanClose(Sender: TObject; var CanClose: boolean);
   private
     { private declarations }
   public
@@ -66,7 +65,7 @@ end;
 
 procedure do_job(const source:string;const target:string;const buffer:string;const start:string;const stop:string);
 var messages:array[0..12] of string=('Operation successfully complete','Can not open input file','Can not create or open output file','Can not allocate memory','Can not decode argument','Buffer length is too small','Buffer length is too big','Input files with zero length not supported','Invalid offset','Invalid start offset! Minimal start offset:1','Can not jump to start offset','Can not read data','Can not write data');
-var id:SmallInt;
+var id:Integer;
 var host,job,message:string;
 begin
  message:='Can not execute an external program';
@@ -83,7 +82,7 @@ end;
 procedure window_setup();
 begin
  Application.Title:='SIMPLE DATA COPIER SHELL';
- Form1.Caption:='SIMPLE DATA COPIER SHELL 0.5.9';
+ Form1.Caption:='SIMPLE DATA COPIER SHELL 0.6';
  Form1.BorderStyle:=bsDialog;
  Form1.Font.Name:=Screen.MenuFont.Name;
  Form1.Font.Size:=14;
@@ -143,9 +142,9 @@ end;
 procedure setup();
 begin
  window_setup();
- dialog_setup();
  interface_setup();
  language_setup();
+ dialog_setup();
  set_default();
 end;
 
@@ -178,11 +177,6 @@ begin
  Form1.Button3.Enabled:=(Form1.LabeledEdit1.Text<>'') and (Form1.LabeledEdit2.Text<>'') and (Form1.LabeledEdit3.Text<>'') and (Form1.LabeledEdit4.Text<>'');
 end;
 
-procedure TForm1.SaveDialog1CanClose(Sender: TObject; var CanClose: boolean);
-begin
- Form1.LabeledEdit2.Text:=Form1.SaveDialog1.FileName;
-end;
-
 procedure TForm1.Button1Click(Sender: TObject);
 begin
 if Form1.OpenDialog1.Execute()=True then
@@ -195,7 +189,7 @@ end;
 
 procedure TForm1.Button2Click(Sender: TObject);
 begin
- Form1.SaveDialog1.Execute();
+ if Form1.SaveDialog1.Execute()=True then Form1.LabeledEdit2.Text:=Form1.SaveDialog1.FileName;
 end;
 
 procedure TForm1.Button3Click(Sender: TObject);
