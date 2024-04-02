@@ -2,7 +2,7 @@
 
                     This software made by Popov Evgeniy Alekseyevich
 
-                             Version 0.6
+                             Version 0.6.4
 
 System requirement
 
@@ -25,7 +25,7 @@ You can send me a letter to tuzik87@inbox.ru
 About program modification
 
 Source code included in source.zip archive.
-It can be compiled under Lazarus 2.2.6 or higher.
+It can be compiled under Lazarus 3.2 or higher.
 
 Change log
 
@@ -39,3 +39,5 @@ Change log
 0.5.6 - 0.5.7 - Small changes
 0.5.7.1 – Documentation updated
 0.5.8 - 0.6 - Small changes
+0.6.1 - The program adapted to new version of SIMPLE DATA COPIER
+0.6.2 - 0.6.4 - Small changes
