@@ -2,7 +2,7 @@
 
                     This software was made by Popov Evgeniy Alekseyevich
 
-                             Version 0.6.5.1
+                             Version 0.6.5.2
 
 System requirements
 
@@ -30,17 +30,17 @@ It can be compiled under Lazarus 3.4 or higher.
 Change log
 
 0.1: Initial version.
-0.2-0.4: Small changes.
-0.5: Small changes. Windows 9x support has been dropped.
-0.5.0.1: Documentation updated.
+0.2-0.4: The small changes.
+0.5: The small changes. Windows 9x support has been dropped.
+0.5.0.1: The documentation has been updated.
 0.5.0.2: A 64-bit system support has been added.
-0.5.1-0.5.4: Small changes.
-0.5.5: A small bug is fixed.
-0.5.6-0.5.7: Small changes.
-0.5.7.1: Documentation updated.
-0.5.8-0.6: Small changes.
-0.6.1: The program was adapted to the new version of SIMPLE DATA COPIER.
-0.6.2: 0.6.4: Small changes.
-0.6.4.1: Documentation updated.
-0.6.5: Small changes.
-0.6.5.1: Documentation updated.
+0.5.1-0.5.4: The small changes.
+0.5.5: A small bug has been fixed.
+0.5.6-0.5.7: The small changes.
+0.5.7.1: The documentation has been updated.
+0.5.8-0.6: The small changes.
+0.6.1: The program has been adapted to the new version of SIMPLE DATA COPIER.
+0.6.2: 0.6.4: The small changes.
+0.6.4.1: The documentation has been updated.
+0.6.5: The small changes.
+0.6.5.1-0.6.5.2: The documentation has been updated.
