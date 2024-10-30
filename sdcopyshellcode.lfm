@@ -6,8 +6,8 @@ object Form1: TForm1
   Caption = 'Form1'
   ClientHeight = 217
   ClientWidth = 419
+  LCLVersion = '4.0.0.1'
   OnCreate = FormCreate
-  LCLVersion = '3.4.0.0'
   object LabeledEdit1: TLabeledEdit
     Left = 96
     Height = 23
