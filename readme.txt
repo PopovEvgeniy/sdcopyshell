@@ -1,8 +1,8 @@
-                         SIMPLE DATA COPIER SHELL
+                         Simple data copier shell
 
                     This software was made by Popov Evgeniy Alekseyevich
 
-                             Version 0.6.6
+                             Version 0.6.7
 
 System requirements
 
@@ -11,8 +11,8 @@ Windows Vista or higher for 64-bit systems
 
 Program description
 
-This program is a graphic shell for SIMPLE DATA COPIER.
-Put the executable file of SIMPLE DATA COPIER to SIMPLE DATA COPIER SHELL directory before the first start.
+This program is a graphic shell for Simple data copier.
+Put the executable file of Simple data copier to Simple data copier shell directory before the first start.
 
 License
 
@@ -25,11 +25,11 @@ You can send me a letter at tuzik87@inbox.ru.
 About program modification
 
 The code is included in the source.zip archive.
-It can be compiled under Lazarus 4.0 RC1 or higher.
+It can be compiled under Lazarus 4.0 RC3 or higher.
 
 Change log
 
-0.1: Initial version.
+0.1: The initial version.
 0.2-0.4: The small changes.
 0.5: The small changes. Windows 9x support has been dropped.
 0.5.0.1: The documentation has been updated.
@@ -45,3 +45,4 @@ Change log
 0.6.5: The small changes.
 0.6.5.1-0.6.5.2: The documentation has been updated.
 0.6.6: The source code was recompiled under Lazarus 4.0 RC1.
+0.6.7: The source code was recompiled under Lazarus 4.0 RC3.

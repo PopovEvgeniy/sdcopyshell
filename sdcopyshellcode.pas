@@ -10,33 +10,33 @@ uses
 
 type
 
-  { TForm1 }
+  { TMainWindow }
 
-  TForm1 = class(TForm)
-    Button1: TButton;
-    Button2: TButton;
-    Button3: TButton;
-    LabeledEdit1: TLabeledEdit;
-    LabeledEdit2: TLabeledEdit;
-    LabeledEdit3: TLabeledEdit;
-    LabeledEdit4: TLabeledEdit;
-    OpenDialog1: TOpenDialog;
-    SaveDialog1: TSaveDialog;
-    procedure Button1Click(Sender: TObject);
-    procedure Button2Click(Sender: TObject);
-    procedure Button3Click(Sender: TObject);
+  TMainWindow = class(TForm)
+    OpenButton: TButton;
+    SetButton: TButton;
+    StartButton: TButton;
+    SourceField: TLabeledEdit;
+    TargetField: TLabeledEdit;
+    StartField: TLabeledEdit;
+    EndField: TLabeledEdit;
+    OpenDialog: TOpenDialog;
+    SaveDialog: TSaveDialog;
+    procedure OpenButtonClick(Sender: TObject);
+    procedure SetButtonClick(Sender: TObject);
+    procedure StartButtonClick(Sender: TObject);
     procedure FormCreate(Sender: TObject);
-    procedure LabeledEdit1Change(Sender: TObject);
-    procedure LabeledEdit2Change(Sender: TObject);
-    procedure LabeledEdit3Change(Sender: TObject);
-    procedure LabeledEdit4Change(Sender: TObject);
+    procedure SourceFieldChange(Sender: TObject);
+    procedure TargetFieldChange(Sender: TObject);
+    procedure StartFieldChange(Sender: TObject);
+    procedure EndFieldChange(Sender: TObject);
   private
     { private declarations }
   public
     { public declarations }
   end;
 
-var Form1: TForm1;
+var MainWindow: TMainWindow;
 
 implementation
 
@@ -80,58 +80,58 @@ end;
 
 procedure window_setup();
 begin
- Application.Title:='SIMPLE DATA COPIER SHELL';
- Form1.Caption:='SIMPLE DATA COPIER SHELL 0.6.6';
- Form1.BorderStyle:=bsDialog;
- Form1.Font.Name:=Screen.MenuFont.Name;
- Form1.Font.Size:=14;
+ Application.Title:='Simple data copier shell';
+ MainWindow.Caption:='Simple data copier shell 0.6.7';
+ MainWindow.BorderStyle:=bsDialog;
+ MainWindow.Font.Name:=Screen.MenuFont.Name;
+ MainWindow.Font.Size:=14;
 end;
 
 procedure dialog_setup();
 begin
- Form1.OpenDialog1.FileName:='';
- Form1.OpenDialog1.DefaultExt:=Form1.OpenDialog1.FileName;
- Form1.SaveDialog1.DefaultExt:=Form1.OpenDialog1.DefaultExt;
- Form1.SaveDialog1.FileName:=Form1.OpenDialog1.FileName;
- Form1.SaveDialog1.Filter:=Form1.OpenDialog1.Filter;
+ MainWindow.OpenDialog.FileName:='';
+ MainWindow.OpenDialog.DefaultExt:=MainWindow.OpenDialog.FileName;
+ MainWindow.SaveDialog.DefaultExt:=MainWindow.OpenDialog.DefaultExt;
+ MainWindow.SaveDialog.FileName:=MainWindow.OpenDialog.FileName;
+ MainWindow.SaveDialog.Filter:=MainWindow.OpenDialog.Filter;
 end;
 
 procedure interface_setup();
 begin
- Form1.LabeledEdit3.NumbersOnly:=True;
- Form1.LabeledEdit4.NumbersOnly:=True;
- Form1.LabeledEdit1.LabelPosition:=lpLeft;
- Form1.LabeledEdit2.LabelPosition:=Form1.LabeledEdit1.LabelPosition;
- Form1.LabeledEdit3.LabelPosition:=Form1.LabeledEdit1.LabelPosition;
- Form1.LabeledEdit4.LabelPosition:=Form1.LabeledEdit1.LabelPosition;
- Form1.LabeledEdit1.Enabled:=False;
- Form1.LabeledEdit2.Enabled:=Form1.LabeledEdit1.Enabled;
- Form1.LabeledEdit1.Text:='';
- Form1.LabeledEdit2.Text:=Form1.LabeledEdit1.Text;
- Form1.Button1.ShowHint:=False;
- Form1.Button2.ShowHint:=Form1.Button1.ShowHint;
- Form1.Button3.ShowHint:=Form1.Button1.ShowHint;
- Form1.Button3.Enabled:=False;
+ MainWindow.StartField.NumbersOnly:=True;
+ MainWindow.EndField.NumbersOnly:=True;
+ MainWindow.SourceField.LabelPosition:=lpLeft;
+ MainWindow.TargetField.LabelPosition:=MainWindow.SourceField.LabelPosition;
+ MainWindow.StartField.LabelPosition:=MainWindow.SourceField.LabelPosition;
+ MainWindow.EndField.LabelPosition:=MainWindow.SourceField.LabelPosition;
+ MainWindow.SourceField.Enabled:=False;
+ MainWindow.TargetField.Enabled:=MainWindow.SourceField.Enabled;
+ MainWindow.SourceField.Text:='';
+ MainWindow.TargetField.Text:=MainWindow.SourceField.Text;
+ MainWindow.OpenButton.ShowHint:=False;
+ MainWindow.SetButton.ShowHint:=MainWindow.OpenButton.ShowHint;
+ MainWindow.StartButton.ShowHint:=MainWindow.OpenButton.ShowHint;
+ MainWindow.StartButton.Enabled:=False;
 end;
 
 procedure language_setup();
 begin
- Form1.OpenDialog1.Title:='Open a file';
- Form1.SaveDialog1.Title:='Save a file';
- Form1.OpenDialog1.Filter:='All files|*.*';
- Form1.LabeledEdit1.EditLabel.Caption:='Source file';
- Form1.LabeledEdit2.EditLabel.Caption:='Target file';
- Form1.LabeledEdit3.EditLabel.Caption:='Start offset(in bytes)';
- Form1.LabeledEdit4.EditLabel.Caption:='End offset(in bytes)';
- Form1.Button1.Caption:='Open';
- Form1.Button2.Caption:='Set';
- Form1.Button3.Caption:='Start';
+ MainWindow.OpenDialog.Title:='Open a file';
+ MainWindow.SaveDialog.Title:='Save a file';
+ MainWindow.OpenDialog.Filter:='All files|*.*';
+ MainWindow.SourceField.EditLabel.Caption:='Source file';
+ MainWindow.TargetField.EditLabel.Caption:='Target file';
+ MainWindow.StartField.EditLabel.Caption:='Start offset(in bytes)';
+ MainWindow.EndField.EditLabel.Caption:='End offset(in bytes)';
+ MainWindow.OpenButton.Caption:='Open';
+ MainWindow.SetButton.Caption:='Set';
+ MainWindow.StartButton.Caption:='Start';
 end;
 
 procedure set_default();
 begin
- Form1.LabeledEdit3.Text:='1';
- Form1.LabeledEdit4.Text:='';
+ MainWindow.StartField.Text:='1';
+ MainWindow.EndField.Text:='';
 end;
 
 procedure setup();
@@ -145,59 +145,59 @@ end;
 
 {$R *.lfm}
 
-{ TForm1 }
+{ TMainWindow }
 
-procedure TForm1.FormCreate(Sender: TObject);
+procedure TMainWindow.FormCreate(Sender: TObject);
 begin
  setup();
 end;
 
-procedure TForm1.LabeledEdit1Change(Sender: TObject);
+procedure TMainWindow.SourceFieldChange(Sender: TObject);
 begin
- Form1.Button3.Enabled:=(Form1.LabeledEdit1.Text<>'') and (Form1.LabeledEdit2.Text<>'');
+ MainWindow.StartButton.Enabled:=(MainWindow.SourceField.Text<>'') and (MainWindow.TargetField.Text<>'');
 end;
 
-procedure TForm1.LabeledEdit2Change(Sender: TObject);
+procedure TMainWindow.TargetFieldChange(Sender: TObject);
 begin
- Form1.Button3.Enabled:=(Form1.LabeledEdit1.Text<>'') and (Form1.LabeledEdit2.Text<>'');
+ MainWindow.StartButton.Enabled:=(MainWindow.SourceField.Text<>'') and (MainWindow.TargetField.Text<>'');
 end;
 
-procedure TForm1.LabeledEdit3Change(Sender: TObject);
+procedure TMainWindow.StartFieldChange(Sender: TObject);
 begin
- if Form1.LabeledEdit3.Text='' then
+ if MainWindow.StartField.Text='' then
  begin
-  Form1.LabeledEdit4.Text:='';
+  MainWindow.EndField.Text:='';
  end;
 
 end;
 
-procedure TForm1.LabeledEdit4Change(Sender: TObject);
+procedure TMainWindow.EndFieldChange(Sender: TObject);
 begin
- if Form1.LabeledEdit3.Text='' then
+ if MainWindow.StartField.Text='' then
  begin
-  Form1.LabeledEdit4.Text:='';
+  MainWindow.EndField.Text:='';
  end;
 
 end;
 
-procedure TForm1.Button1Click(Sender: TObject);
+procedure TMainWindow.OpenButtonClick(Sender: TObject);
 begin
-if Form1.OpenDialog1.Execute()=True then
+if MainWindow.OpenDialog.Execute()=True then
 begin
- Form1.LabeledEdit1.Text:=Form1.OpenDialog1.FileName;
+ MainWindow.SourceField.Text:=MainWindow.OpenDialog.FileName;
  set_default();
 end;
 
 end;
 
-procedure TForm1.Button2Click(Sender: TObject);
+procedure TMainWindow.SetButtonClick(Sender: TObject);
 begin
- if Form1.SaveDialog1.Execute()=True then Form1.LabeledEdit2.Text:=Form1.SaveDialog1.FileName;
+ if MainWindow.SaveDialog.Execute()=True then MainWindow.TargetField.Text:=MainWindow.SaveDialog.FileName;
 end;
 
-procedure TForm1.Button3Click(Sender: TObject);
+procedure TMainWindow.StartButtonClick(Sender: TObject);
 begin
- do_job(Form1.LabeledEdit1.Text,Form1.LabeledEdit2.Text,Form1.LabeledEdit3.Text,Form1.LabeledEdit4.Text);
+ do_job(MainWindow.SourceField.Text,MainWindow.TargetField.Text,MainWindow.StartField.Text,MainWindow.EndField.Text);
 end;
 
 end.

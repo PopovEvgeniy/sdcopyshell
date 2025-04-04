@@ -1,97 +1,96 @@
-object Form1: TForm1
+object MainWindow: TMainWindow
   Left = 234
   Height = 217
   Top = 134
   Width = 419
-  Caption = 'Form1'
+  Caption = 'Simple data copier shell'
   ClientHeight = 217
   ClientWidth = 419
-  LCLVersion = '4.0.0.1'
   OnCreate = FormCreate
-  object LabeledEdit1: TLabeledEdit
+  object SourceField: TLabeledEdit
     Left = 96
     Height = 23
     Top = 12
     Width = 224
-    EditLabel.Height = 15
+    EditLabel.Height = 23
     EditLabel.Width = 55
     EditLabel.Caption = 'Source file'
     EditLabel.ParentColor = False
     LabelPosition = lpLeft
     TabOrder = 0
-    OnChange = LabeledEdit1Change
+    OnChange = SourceFieldChange
   end
-  object LabeledEdit2: TLabeledEdit
+  object TargetField: TLabeledEdit
     Left = 96
     Height = 23
     Top = 48
     Width = 224
-    EditLabel.Height = 15
-    EditLabel.Width = 51
+    EditLabel.Height = 23
+    EditLabel.Width = 52
     EditLabel.Caption = 'Target file'
     EditLabel.ParentColor = False
     LabelPosition = lpLeft
     TabOrder = 1
-    OnChange = LabeledEdit2Change
+    OnChange = TargetFieldChange
   end
-  object LabeledEdit3: TLabeledEdit
+  object StartField: TLabeledEdit
     Left = 208
     Height = 23
     Top = 88
     Width = 200
-    EditLabel.Height = 15
+    EditLabel.Height = 23
     EditLabel.Width = 106
     EditLabel.Caption = 'Start offset(in bytes)'
     EditLabel.ParentColor = False
     LabelPosition = lpLeft
     TabOrder = 2
-    OnChange = LabeledEdit3Change
+    OnChange = StartFieldChange
   end
-  object LabeledEdit4: TLabeledEdit
+  object EndField: TLabeledEdit
     Left = 208
     Height = 23
     Top = 128
     Width = 200
-    EditLabel.Height = 15
+    EditLabel.Height = 23
     EditLabel.Width = 102
     EditLabel.Caption = 'End offset(in bytes)'
     EditLabel.ParentColor = False
     LabelPosition = lpLeft
     TabOrder = 3
-    OnChange = LabeledEdit4Change
+    OnChange = EndFieldChange
   end
-  object Button1: TButton
+  object OpenButton: TButton
     Left = 336
     Height = 25
     Top = 12
     Width = 75
     Caption = 'Open'
     TabOrder = 4
-    OnClick = Button1Click
+    OnClick = OpenButtonClick
   end
-  object Button2: TButton
+  object SetButton: TButton
     Left = 336
     Height = 25
     Top = 48
     Width = 75
     Caption = 'Set'
     TabOrder = 5
-    OnClick = Button2Click
+    OnClick = SetButtonClick
   end
-  object Button3: TButton
+  object StartButton: TButton
     Left = 168
     Height = 25
     Top = 176
     Width = 75
-    Caption = 'Button3'
+    Caption = 'Start'
     TabOrder = 6
-    OnClick = Button3Click
+    OnClick = StartButtonClick
   end
-  object OpenDialog1: TOpenDialog
+  object OpenDialog: TOpenDialog
     Left = 24
     Top = 152
   end
-  object SaveDialog1: TSaveDialog
+  object SaveDialog: TSaveDialog
     Left = 24
     Top = 88
   end
