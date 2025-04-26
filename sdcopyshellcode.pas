@@ -6,7 +6,7 @@ interface
 
 uses
   Classes, SysUtils, Forms, Controls, Graphics, Dialogs, ExtCtrls,
-  StdCtrls, LazFileUtils;
+  StdCtrls;
 
 type
 
@@ -63,7 +63,7 @@ begin
 end;
 
 procedure do_job(const source:string;const target:string;const start:string;const stop:string);
-var messages:array[0..10] of string=('Operation was successfully completed','Can not open the input file','Can not create or open the output file','Can not allocate memory','Can not decode an argument','An input file with zero length is not supported','Invalid offset','Invalid start offset! Minimal start offset:1','Can not jump to the start offset','Can not read data','Can not write data');
+var messages:array[0..10] of string=('The operation was successfully completed','Can not open the input file','Can not create or open the output file','Can not allocate memory','Can not decode an argument','An input file with zero length is not supported','Invalid offset','Invalid start offset! Minimal start offset:1','Can not jump to the start offset','Can not read data','Can not write data');
 var id:Integer;
 var host,job,message:string;
 begin
@@ -81,7 +81,7 @@ end;
 procedure window_setup();
 begin
  Application.Title:='Simple data copier shell';
- MainWindow.Caption:='Simple data copier shell 0.6.7';
+ MainWindow.Caption:='Simple data copier shell 0.6.8';
  MainWindow.BorderStyle:=bsDialog;
  MainWindow.Font.Name:=Screen.MenuFont.Name;
  MainWindow.Font.Size:=14;
