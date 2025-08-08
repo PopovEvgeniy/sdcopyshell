@@ -2,7 +2,7 @@
 
                     This software was made by Popov Evgeniy Alekseyevich
 
-                             Version 0.6.8
+                             Version 0.6.8.1
 
 System requirements
 
@@ -16,11 +16,7 @@ Put the executable file of Simple data copier in Simple data copier shell direct
 
 License
 
-This program is distributed under GNU GENERAL PUBLIC LICENSE.
-
-Contact
-
-You can send me a letter at tuzik87@inbox.ru.
+This program is distributed under the GNU GENERAL PUBLIC LICENSE.
 
 About program modification
 
@@ -47,3 +43,4 @@ Change log
 0.6.6: The source code was recompiled under Lazarus 4.0 RC1.
 0.6.7: The source code was recompiled under Lazarus 4.0 RC3.
 0.6.8: The small changes.
+0.6.8.1: The documentation has been updated.
