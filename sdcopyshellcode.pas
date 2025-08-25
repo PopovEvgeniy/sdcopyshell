@@ -63,7 +63,7 @@ begin
 end;
 
 procedure do_job(const source:string;const target:string;const start:string;const stop:string);
-var messages:array[0..10] of string=('The operation was successfully completed','Can not open the input file','Can not create or open the output file','Can not allocate memory','Can not decode an argument','An input file with zero length is not supported','Invalid offset','Invalid start offset! Minimal start offset:1','Can not jump to the start offset','Can not read data','Can not write data');
+var messages:array[0..10] of string=('The operation was successfully completed','Can not open the input file','Can not create or open the output file','Can not allocate memory','Can not decode an argument','An input file with zero length is not supported','This offset is invalid!','The start offset is invalid! The minimal start offset: 1','Can not jump to the start offset','Can not read data','Can not write data');
 var id:Integer;
 var host,job,message:string;
 begin
@@ -81,7 +81,7 @@ end;
 procedure window_setup();
 begin
  Application.Title:='Simple data copier shell';
- MainWindow.Caption:='Simple data copier shell 0.6.8';
+ MainWindow.Caption:='Simple data copier shell 0.6.9';
  MainWindow.BorderStyle:=bsDialog;
  MainWindow.Font.Name:=Screen.MenuFont.Name;
  MainWindow.Font.Size:=14;
@@ -119,10 +119,10 @@ begin
  MainWindow.OpenDialog.Title:='Open a file';
  MainWindow.SaveDialog.Title:='Save a file';
  MainWindow.OpenDialog.Filter:='All files|*.*';
- MainWindow.SourceField.EditLabel.Caption:='Source file';
- MainWindow.TargetField.EditLabel.Caption:='Target file';
- MainWindow.StartField.EditLabel.Caption:='Start offset(in bytes)';
- MainWindow.EndField.EditLabel.Caption:='End offset(in bytes)';
+ MainWindow.SourceField.EditLabel.Caption:='The source file';
+ MainWindow.TargetField.EditLabel.Caption:='The target file';
+ MainWindow.StartField.EditLabel.Caption:='The start offset(in bytes)';
+ MainWindow.EndField.EditLabel.Caption:='The end offset(in bytes)';
  MainWindow.OpenButton.Caption:='Open';
  MainWindow.SetButton.Caption:='Set';
  MainWindow.StartButton.Caption:='Start';

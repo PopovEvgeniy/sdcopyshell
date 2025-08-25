@@ -2,7 +2,7 @@
 
                     This software was made by Popov Evgeniy Alekseyevich
 
-                             Version 0.6.8.1
+                             Version 0.6.9
 
 System requirements
 
@@ -21,7 +21,7 @@ This program is distributed under the GNU GENERAL PUBLIC LICENSE.
 About program modification
 
 The code is included in the source.zip archive.
-It can be compiled under Lazarus 4.0 RC3 or higher.
+It can be compiled under Lazarus 4.2 or higher.
 
 Change log
 
@@ -44,3 +44,4 @@ Change log
 0.6.7: The source code was recompiled under Lazarus 4.0 RC3.
 0.6.8: The small changes.
 0.6.8.1: The documentation has been updated.
+0.6.9: The small changes.

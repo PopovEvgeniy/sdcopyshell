@@ -2,33 +2,32 @@ object MainWindow: TMainWindow
   Left = 234
   Height = 217
   Top = 134
-  Width = 419
+  Width = 498
   Caption = 'Simple data copier shell'
   ClientHeight = 217
-  ClientWidth = 419
-  LCLVersion = '4.0.0.3'
+  ClientWidth = 498
   OnCreate = FormCreate
   object SourceField: TLabeledEdit
-    Left = 96
+    Left = 144
     Height = 23
     Top = 12
-    Width = 224
+    Width = 240
     EditLabel.Height = 23
-    EditLabel.Width = 55
-    EditLabel.Caption = 'Source file'
+    EditLabel.Width = 77
+    EditLabel.Caption = 'The source file'
     EditLabel.ParentColor = False
     LabelPosition = lpLeft
     TabOrder = 0
     OnChange = SourceFieldChange
   end
   object TargetField: TLabeledEdit
-    Left = 96
+    Left = 144
     Height = 23
     Top = 48
-    Width = 224
+    Width = 240
     EditLabel.Height = 23
-    EditLabel.Width = 52
-    EditLabel.Caption = 'Target file'
+    EditLabel.Width = 73
+    EditLabel.Caption = 'The target file'
     EditLabel.ParentColor = False
     LabelPosition = lpLeft
     TabOrder = 1
@@ -40,8 +39,8 @@ object MainWindow: TMainWindow
     Top = 88
     Width = 200
     EditLabel.Height = 23
-    EditLabel.Width = 106
-    EditLabel.Caption = 'Start offset(in bytes)'
+    EditLabel.Width = 128
+    EditLabel.Caption = 'The start offset(in bytes)'
     EditLabel.ParentColor = False
     LabelPosition = lpLeft
     TabOrder = 2
@@ -53,15 +52,15 @@ object MainWindow: TMainWindow
     Top = 128
     Width = 200
     EditLabel.Height = 23
-    EditLabel.Width = 102
-    EditLabel.Caption = 'End offset(in bytes)'
+    EditLabel.Width = 125
+    EditLabel.Caption = 'The end offset(in bytes)'
     EditLabel.ParentColor = False
     LabelPosition = lpLeft
     TabOrder = 3
     OnChange = EndFieldChange
   end
   object OpenButton: TButton
-    Left = 336
+    Left = 400
     Height = 25
     Top = 12
     Width = 75
@@ -70,7 +69,7 @@ object MainWindow: TMainWindow
     OnClick = OpenButtonClick
   end
   object SetButton: TButton
-    Left = 336
+    Left = 400
     Height = 25
     Top = 48
     Width = 75
