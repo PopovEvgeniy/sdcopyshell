@@ -2,7 +2,7 @@
 
                     This software was made by Popov Evgeniy Alekseyevich
 
-                             Version 0.6.9
+                             Version 0.7.2
 
 System requirements
 
@@ -12,7 +12,7 @@ Windows Vista or higher for 64-bit systems
 Program description
 
 This program is a graphic shell for Simple data copier.
-Put the executable file of Simple data copier in Simple data copier shell directory before the first start.
+Put the executable file of Simple data copier in the Simple data copier shell directory before the first start.
 
 License
 
@@ -29,7 +29,7 @@ Change log
 0.2-0.4: The small changes.
 0.5: The small changes. Windows 9x support has been dropped.
 0.5.0.1: The documentation has been updated.
-0.5.0.2: A 64-bit system support has been added.
+0.5.0.2: 64-bit system support has been added.
 0.5.1-0.5.4: The small changes.
 0.5.5: A small bug has been fixed.
 0.5.6-0.5.7: The small changes.
@@ -45,3 +45,6 @@ Change log
 0.6.8: The small changes.
 0.6.8.1: The documentation has been updated.
 0.6.9: The small changes.
+0.7: The program has been adapted to the new version of SIMPLE DATA COPIER.
+0.7.1: The user interface has improved.
+0.7.2: The small changes.

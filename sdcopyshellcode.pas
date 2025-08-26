@@ -19,7 +19,7 @@ type
     SourceField: TLabeledEdit;
     TargetField: TLabeledEdit;
     StartField: TLabeledEdit;
-    EndField: TLabeledEdit;
+    BlockField: TLabeledEdit;
     OpenDialog: TOpenDialog;
     SaveDialog: TSaveDialog;
     procedure OpenButtonClick(Sender: TObject);
@@ -29,7 +29,6 @@ type
     procedure SourceFieldChange(Sender: TObject);
     procedure TargetFieldChange(Sender: TObject);
     procedure StartFieldChange(Sender: TObject);
-    procedure EndFieldChange(Sender: TObject);
   private
     { private declarations }
   public
@@ -81,7 +80,7 @@ end;
 procedure window_setup();
 begin
  Application.Title:='Simple data copier shell';
- MainWindow.Caption:='Simple data copier shell 0.6.9';
+ MainWindow.Caption:='Simple data copier shell 0.7.2';
  MainWindow.BorderStyle:=bsDialog;
  MainWindow.Font.Name:=Screen.MenuFont.Name;
  MainWindow.Font.Size:=14;
@@ -99,11 +98,11 @@ end;
 procedure interface_setup();
 begin
  MainWindow.StartField.NumbersOnly:=True;
- MainWindow.EndField.NumbersOnly:=True;
+ MainWindow.BlockField.NumbersOnly:=True;
  MainWindow.SourceField.LabelPosition:=lpLeft;
  MainWindow.TargetField.LabelPosition:=MainWindow.SourceField.LabelPosition;
  MainWindow.StartField.LabelPosition:=MainWindow.SourceField.LabelPosition;
- MainWindow.EndField.LabelPosition:=MainWindow.SourceField.LabelPosition;
+ MainWindow.BlockField.LabelPosition:=MainWindow.SourceField.LabelPosition;
  MainWindow.SourceField.Enabled:=False;
  MainWindow.TargetField.Enabled:=MainWindow.SourceField.Enabled;
  MainWindow.SourceField.Text:='';
@@ -122,7 +121,7 @@ begin
  MainWindow.SourceField.EditLabel.Caption:='The source file';
  MainWindow.TargetField.EditLabel.Caption:='The target file';
  MainWindow.StartField.EditLabel.Caption:='The start offset(in bytes)';
- MainWindow.EndField.EditLabel.Caption:='The end offset(in bytes)';
+ MainWindow.BlockField.EditLabel.Caption:='The block length(in bytes)';
  MainWindow.OpenButton.Caption:='Open';
  MainWindow.SetButton.Caption:='Set';
  MainWindow.StartButton.Caption:='Start';
@@ -131,7 +130,7 @@ end;
 procedure set_default();
 begin
  MainWindow.StartField.Text:='1';
- MainWindow.EndField.Text:='';
+ MainWindow.BlockField.Text:='';
 end;
 
 procedure setup();
@@ -166,18 +165,9 @@ procedure TMainWindow.StartFieldChange(Sender: TObject);
 begin
  if MainWindow.StartField.Text='' then
  begin
-  MainWindow.EndField.Text:='';
+  MainWindow.BlockField.Text:='';
  end;
-
-end;
-
-procedure TMainWindow.EndFieldChange(Sender: TObject);
-begin
- if MainWindow.StartField.Text='' then
- begin
-  MainWindow.EndField.Text:='';
- end;
-
+ MainWindow.BlockField.Enabled:=MainWindow.StartField.Text<>'';
 end;
 
 procedure TMainWindow.OpenButtonClick(Sender: TObject);
@@ -197,7 +187,7 @@ end;
 
 procedure TMainWindow.StartButtonClick(Sender: TObject);
 begin
- do_job(MainWindow.SourceField.Text,MainWindow.TargetField.Text,MainWindow.StartField.Text,MainWindow.EndField.Text);
+ do_job(MainWindow.SourceField.Text,MainWindow.TargetField.Text,MainWindow.StartField.Text,MainWindow.BlockField.Text);
 end;
 
 end.
