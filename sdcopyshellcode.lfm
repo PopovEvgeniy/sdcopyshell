@@ -6,7 +6,7 @@ object MainWindow: TMainWindow
   Caption = 'Simple data copier shell'
   ClientHeight = 217
   ClientWidth = 498
-  LCLVersion = '4.2.0.0'
+  LCLVersion = '4.6.0.0'
   OnCreate = FormCreate
   object SourceField: TLabeledEdit
     Left = 144
@@ -35,10 +35,10 @@ object MainWindow: TMainWindow
     OnChange = TargetFieldChange
   end
   object StartField: TLabeledEdit
-    Left = 248
+    Left = 216
     Height = 23
     Top = 96
-    Width = 237
+    Width = 272
     EditLabel.Height = 23
     EditLabel.Width = 128
     EditLabel.Caption = 'The start offset(in bytes)'
@@ -48,10 +48,10 @@ object MainWindow: TMainWindow
     OnChange = StartFieldChange
   end
   object BlockField: TLabeledEdit
-    Left = 248
+    Left = 224
     Height = 23
     Top = 136
-    Width = 237
+    Width = 264
     EditLabel.Height = 23
     EditLabel.Width = 138
     EditLabel.Caption = 'The block length(in bytes)'

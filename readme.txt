@@ -2,7 +2,7 @@
 
                     This software was made by Popov Evgeniy Alekseyevich
 
-                             Version 0.7.2.1
+                             Version 0.7.3
 
 System requirements.
 
@@ -21,7 +21,7 @@ This program is distributed under the GNU GENERAL PUBLIC LICENSE.
 The source code.
 
 The code is included in the source.zip archive.
-It can be compiled under Lazarus 4.2 or higher.
+It can be compiled under Lazarus 4.6 or higher.
 
 Version history.
 
@@ -35,7 +35,7 @@ Version history.
 0.5.6-0.5.7: The small changes.
 0.5.7.1: The documentation has been updated.
 0.5.8-0.6: The small changes.
-0.6.1: The program has been adapted to the new version of SIMPLE DATA COPIER.
+0.6.1: The program has been adapted to the new version of Simple data copier.
 0.6.2: 0.6.4: The small changes.
 0.6.4.1: The documentation has been updated.
 0.6.5: The small changes.
@@ -45,7 +45,8 @@ Version history.
 0.6.8: The small changes.
 0.6.8.1: The documentation has been updated.
 0.6.9: The small changes.
-0.7: The program has been adapted to the new version of SIMPLE DATA COPIER.
+0.7: The program has been adapted to the new version of Simple data copier.
 0.7.1: The user interface has improved.
 0.7.2: The small changes.
 0.7.2.1: The documentation has been updated.
+0.7.3: The program has been adapted to the new version of Simple data copier.
