@@ -62,7 +62,7 @@ begin
 end;
 
 procedure do_job(const source:string;const target:string;const start:string;const stop:string);
-var messages:array[0..11] of string=('The operation was successfully completed','Cannot open the input file!','Cannot create or open the output file!','Cannot jump to the start offset!','Cannot read data!','Cannot write data!','An input file with zero length is not supported','The start offset is invalid!','The block length is invalid!','The start offset is invalid! The minimal start offset: 1','Cannot decode an argument','Cannot allocate memory!');
+var messages:array[0..10] of string=('The operation was successfully completed','Cannot open the input file!','Cannot create or open the output file!','Cannot jump to the start offset!','Cannot read data!','Cannot write data!','The start offset is invalid!','The block length is invalid!','The block length is too large!','Cannot decode an argument','Cannot allocate memory!');
 var id:Integer;
 var host,job,message:string;
 begin
@@ -80,7 +80,7 @@ end;
 procedure window_setup();
 begin
  Application.Title:='Simple data copier shell';
- MainWindow.Caption:='Simple data copier shell 0.7.3';
+ MainWindow.Caption:='Simple data copier shell 0.7.4';
  MainWindow.BorderStyle:=bsDialog;
  MainWindow.Font.Name:=Screen.MenuFont.Name;
  MainWindow.Font.Size:=14;
@@ -129,7 +129,7 @@ end;
 
 procedure set_default();
 begin
- MainWindow.StartField.Text:='1';
+ MainWindow.StartField.Text:='0';
  MainWindow.BlockField.Text:='';
 end;
 
