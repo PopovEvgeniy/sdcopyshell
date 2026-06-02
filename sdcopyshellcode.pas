@@ -1,12 +1,16 @@
 unit sdcopyshellcode;
 
-{$mode objfpc}{$H+}
+{
+ This sofware was made by Popov Evgeniy Alekseyevich.
+ It is distributed under the GNU GENERAL PUBLIC LICENSE (Version 2 or higher).
+}
+
+{$mode objfpc}
+{$H+}
 
 interface
 
-uses
-  Classes, SysUtils, Forms, Controls, Graphics, Dialogs, ExtCtrls,
-  StdCtrls;
+uses Classes, SysUtils, Forms, Controls, Graphics, Dialogs, ExtCtrls, StdCtrls;
 
 type
 
@@ -30,7 +34,12 @@ type
     procedure TargetFieldChange(Sender: TObject);
     procedure StartFieldChange(Sender: TObject);
   private
-    { private declarations }
+    procedure window_setup();
+    procedure dialog_setup();
+    procedure interface_setup();
+    procedure language_setup();
+    procedure set_default();
+    procedure setup();
   public
     { public declarations }
   end;
@@ -38,6 +47,71 @@ type
 var MainWindow: TMainWindow;
 
 implementation
+
+procedure TMainWindow.window_setup();
+begin
+ Application.Title:='Simple data copier shell';
+ Self.Caption:='Simple data copier shell 0.7.5';
+ Self.BorderStyle:=bsDialog;
+ Self.Font.Name:=Screen.MenuFont.Name;
+ Self.Font.Size:=14;
+end;
+
+procedure TMainWindow.dialog_setup();
+begin
+ Self.OpenDialog.FileName:='';
+ Self.OpenDialog.DefaultExt:=Self.OpenDialog.FileName;
+ Self.SaveDialog.DefaultExt:=Self.OpenDialog.DefaultExt;
+ Self.SaveDialog.FileName:=Self.OpenDialog.FileName;
+ Self.SaveDialog.Filter:=Self.OpenDialog.Filter;
+end;
+
+procedure TMainWindow.interface_setup();
+begin
+ Self.StartField.NumbersOnly:=True;
+ Self.BlockField.NumbersOnly:=True;
+ Self.SourceField.LabelPosition:=lpLeft;
+ Self.TargetField.LabelPosition:=Self.SourceField.LabelPosition;
+ Self.StartField.LabelPosition:=Self.SourceField.LabelPosition;
+ Self.BlockField.LabelPosition:=Self.SourceField.LabelPosition;
+ Self.SourceField.Enabled:=False;
+ Self.TargetField.Enabled:=Self.SourceField.Enabled;
+ Self.SourceField.Text:='';
+ Self.TargetField.Text:=Self.SourceField.Text;
+ Self.OpenButton.ShowHint:=False;
+ Self.SetButton.ShowHint:=Self.OpenButton.ShowHint;
+ Self.StartButton.ShowHint:=Self.OpenButton.ShowHint;
+ Self.StartButton.Enabled:=False;
+end;
+
+procedure TMainWindow.language_setup();
+begin
+ Self.OpenDialog.Title:='Open a file';
+ Self.SaveDialog.Title:='Save a file';
+ Self.OpenDialog.Filter:='All files|*.*';
+ Self.SourceField.EditLabel.Caption:='The source file';
+ Self.TargetField.EditLabel.Caption:='The target file';
+ Self.StartField.EditLabel.Caption:='The start offset(in bytes)';
+ Self.BlockField.EditLabel.Caption:='The block length(in bytes)';
+ Self.OpenButton.Caption:='Open';
+ Self.SetButton.Caption:='Set';
+ Self.StartButton.Caption:='Start';
+end;
+
+procedure TMainWindow.set_default();
+begin
+ Self.StartField.Text:='0';
+ Self.BlockField.Text:='';
+end;
+
+procedure TMainWindow.setup();
+begin
+ Self.window_setup();
+ Self.interface_setup();
+ Self.language_setup();
+ Self.dialog_setup();
+ Self.set_default();
+end;
 
 function convert_file_name(const source:string):string;
 var target:string;
@@ -77,117 +151,52 @@ begin
  ShowMessage(message);
 end;
 
-procedure window_setup();
-begin
- Application.Title:='Simple data copier shell';
- MainWindow.Caption:='Simple data copier shell 0.7.4';
- MainWindow.BorderStyle:=bsDialog;
- MainWindow.Font.Name:=Screen.MenuFont.Name;
- MainWindow.Font.Size:=14;
-end;
-
-procedure dialog_setup();
-begin
- MainWindow.OpenDialog.FileName:='';
- MainWindow.OpenDialog.DefaultExt:=MainWindow.OpenDialog.FileName;
- MainWindow.SaveDialog.DefaultExt:=MainWindow.OpenDialog.DefaultExt;
- MainWindow.SaveDialog.FileName:=MainWindow.OpenDialog.FileName;
- MainWindow.SaveDialog.Filter:=MainWindow.OpenDialog.Filter;
-end;
-
-procedure interface_setup();
-begin
- MainWindow.StartField.NumbersOnly:=True;
- MainWindow.BlockField.NumbersOnly:=True;
- MainWindow.SourceField.LabelPosition:=lpLeft;
- MainWindow.TargetField.LabelPosition:=MainWindow.SourceField.LabelPosition;
- MainWindow.StartField.LabelPosition:=MainWindow.SourceField.LabelPosition;
- MainWindow.BlockField.LabelPosition:=MainWindow.SourceField.LabelPosition;
- MainWindow.SourceField.Enabled:=False;
- MainWindow.TargetField.Enabled:=MainWindow.SourceField.Enabled;
- MainWindow.SourceField.Text:='';
- MainWindow.TargetField.Text:=MainWindow.SourceField.Text;
- MainWindow.OpenButton.ShowHint:=False;
- MainWindow.SetButton.ShowHint:=MainWindow.OpenButton.ShowHint;
- MainWindow.StartButton.ShowHint:=MainWindow.OpenButton.ShowHint;
- MainWindow.StartButton.Enabled:=False;
-end;
-
-procedure language_setup();
-begin
- MainWindow.OpenDialog.Title:='Open a file';
- MainWindow.SaveDialog.Title:='Save a file';
- MainWindow.OpenDialog.Filter:='All files|*.*';
- MainWindow.SourceField.EditLabel.Caption:='The source file';
- MainWindow.TargetField.EditLabel.Caption:='The target file';
- MainWindow.StartField.EditLabel.Caption:='The start offset(in bytes)';
- MainWindow.BlockField.EditLabel.Caption:='The block length(in bytes)';
- MainWindow.OpenButton.Caption:='Open';
- MainWindow.SetButton.Caption:='Set';
- MainWindow.StartButton.Caption:='Start';
-end;
-
-procedure set_default();
-begin
- MainWindow.StartField.Text:='0';
- MainWindow.BlockField.Text:='';
-end;
-
-procedure setup();
-begin
- window_setup();
- interface_setup();
- language_setup();
- dialog_setup();
- set_default();
-end;
-
 {$R *.lfm}
 
 { TMainWindow }
 
 procedure TMainWindow.FormCreate(Sender: TObject);
 begin
- setup();
+ Self.setup();
 end;
 
 procedure TMainWindow.SourceFieldChange(Sender: TObject);
 begin
- MainWindow.StartButton.Enabled:=(MainWindow.SourceField.Text<>'') and (MainWindow.TargetField.Text<>'');
+ Self.StartButton.Enabled:=(Self.SourceField.Text<>'') and (Self.TargetField.Text<>'');
 end;
 
 procedure TMainWindow.TargetFieldChange(Sender: TObject);
 begin
- MainWindow.StartButton.Enabled:=(MainWindow.SourceField.Text<>'') and (MainWindow.TargetField.Text<>'');
+ Self.StartButton.Enabled:=(Self.SourceField.Text<>'') and (Self.TargetField.Text<>'');
 end;
 
 procedure TMainWindow.StartFieldChange(Sender: TObject);
 begin
- if MainWindow.StartField.Text='' then
+ if Self.StartField.Text='' then
  begin
-  MainWindow.BlockField.Text:='';
+  Self.BlockField.Text:='';
  end;
- MainWindow.BlockField.Enabled:=MainWindow.StartField.Text<>'';
+ Self.BlockField.Enabled:=Self.StartField.Text<>'';
 end;
 
 procedure TMainWindow.OpenButtonClick(Sender: TObject);
 begin
-if MainWindow.OpenDialog.Execute()=True then
+if Self.OpenDialog.Execute()=True then
 begin
- MainWindow.SourceField.Text:=MainWindow.OpenDialog.FileName;
- set_default();
+ Self.SourceField.Text:=Self.OpenDialog.FileName;
+ Self.set_default();
 end;
 
 end;
 
 procedure TMainWindow.SetButtonClick(Sender: TObject);
 begin
- if MainWindow.SaveDialog.Execute()=True then MainWindow.TargetField.Text:=MainWindow.SaveDialog.FileName;
+ if Self.SaveDialog.Execute()=True then Self.TargetField.Text:=Self.SaveDialog.FileName;
 end;
 
 procedure TMainWindow.StartButtonClick(Sender: TObject);
 begin
- do_job(MainWindow.SourceField.Text,MainWindow.TargetField.Text,MainWindow.StartField.Text,MainWindow.BlockField.Text);
+ do_job(Self.SourceField.Text,Self.TargetField.Text,Self.StartField.Text,Self.BlockField.Text);
 end;
 
 end.
