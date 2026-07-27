@@ -6,7 +6,7 @@ object MainWindow: TMainWindow
   Caption = 'Simple data copier shell'
   ClientHeight = 217
   ClientWidth = 498
-  LCLVersion = '4.6.0.0'
+  LCLVersion = '4.8.0.0'
   OnCreate = FormCreate
   object SourceField: TLabeledEdit
     Left = 144
