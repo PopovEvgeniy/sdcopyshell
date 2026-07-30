@@ -2,7 +2,7 @@
 
                     This software was made by Popov Evgeniy Alekseyevich
 
-                             Version 0.7.6
+                             Version 0.7.7
 
 System requirements.
 
@@ -52,3 +52,4 @@ Version history.
 0.7.3-0.7.4: The program has been adapted to the new version of Simple data copier.
 0.7.5: The small changes.
 0.7.6: The program has been adapted to the new version of Simple data copier.
+0.7.7: The small changes.

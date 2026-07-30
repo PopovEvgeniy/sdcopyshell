@@ -35,7 +35,7 @@ object MainWindow: TMainWindow
     OnChange = TargetFieldChange
   end
   object StartField: TLabeledEdit
-    Left = 216
+    Left = 211
     Height = 23
     Top = 96
     Width = 272
@@ -48,7 +48,7 @@ object MainWindow: TMainWindow
     OnChange = StartFieldChange
   end
   object BlockField: TLabeledEdit
-    Left = 224
+    Left = 219
     Height = 23
     Top = 136
     Width = 264
@@ -87,11 +87,11 @@ object MainWindow: TMainWindow
     OnClick = StartButtonClick
   end
   object OpenDialog: TOpenDialog
-    Left = 24
-    Top = 152
+    Left = 136
+    Top = 168
   end
   object SaveDialog: TSaveDialog
-    Left = 24
-    Top = 88
+    Left = 384
+    Top = 168
   end
 end

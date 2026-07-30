@@ -34,6 +34,7 @@ type
     procedure TargetFieldChange(Sender: TObject);
     procedure StartFieldChange(Sender: TObject);
   private
+    function check_input():boolean;
     procedure window_setup();
     procedure dialog_setup();
     procedure interface_setup();
@@ -48,10 +49,15 @@ var MainWindow: TMainWindow;
 
 implementation
 
+function TMainWindow.check_input():boolean;
+begin
+ Result:=(Self.SourceField.Text<>'') and (Self.TargetField.Text<>'');
+end;
+
 procedure TMainWindow.window_setup();
 begin
  Application.Title:='Simple data copier shell';
- Self.Caption:='Simple data copier shell 0.7.6';
+ Self.Caption:='Simple data copier shell 0.7.7';
  Self.BorderStyle:=bsDialog;
  Self.Font.Name:=Screen.MenuFont.Name;
  Self.Font.Size:=14;
@@ -132,7 +138,7 @@ begin
  except
   code:=-1;
  end;
- execute_program:=code;
+ Result:=code;
 end;
 
 procedure do_job(const source:string;const target:string;const start:string;const stop:string);
@@ -162,20 +168,17 @@ end;
 
 procedure TMainWindow.SourceFieldChange(Sender: TObject);
 begin
- Self.StartButton.Enabled:=(Self.SourceField.Text<>'') and (Self.TargetField.Text<>'');
+ Self.StartButton.Enabled:=Self.check_input();
 end;
 
 procedure TMainWindow.TargetFieldChange(Sender: TObject);
 begin
- Self.StartButton.Enabled:=(Self.SourceField.Text<>'') and (Self.TargetField.Text<>'');
+ Self.StartButton.Enabled:=Self.check_input();
 end;
 
 procedure TMainWindow.StartFieldChange(Sender: TObject);
 begin
- if Self.StartField.Text='' then
- begin
-  Self.BlockField.Text:='';
- end;
+ if Self.StartField.Text='' then Self.BlockField.Text:='';
  Self.BlockField.Enabled:=Self.StartField.Text<>'';
 end;
 
