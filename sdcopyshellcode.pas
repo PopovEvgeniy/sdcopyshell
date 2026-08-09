@@ -57,7 +57,7 @@ end;
 procedure TMainWindow.window_setup();
 begin
  Application.Title:='Simple data copier shell';
- Self.Caption:='Simple data copier shell 0.7.7';
+ Self.Caption:='Simple data copier shell 0.7.8';
  Self.BorderStyle:=bsDialog;
  Self.Font.Name:=Screen.MenuFont.Name;
  Self.Font.Size:=14;
@@ -142,7 +142,7 @@ begin
 end;
 
 procedure do_job(const source:string;const target:string;const start:string;const stop:string);
-var messages:array[0..11] of string=('The operation was successfully completed','Cannot open the input file!','Cannot create or open the output file!','Cannot jump to the start offset!','Cannot get the file size!','Cannot read data!','Cannot write data!','The start offset is invalid!','The block length is invalid!','The block length is too large!','Cannot decode an argument','Cannot allocate memory!');
+var messages:array[0..12] of string=('The operation was successfully completed','Cannot open the input file!','Cannot create or open the output file!','Cannot jump to the start offset!','Cannot get the current offset!','Cannot get the file size!','Cannot read data!','Cannot write data!','The start offset is invalid!','The block length is invalid!','The block length is too large!','Cannot decode an argument','Cannot allocate memory!');
 var id:Integer;
 var host,job,message:string;
 begin
