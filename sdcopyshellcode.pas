@@ -34,7 +34,6 @@ type
     procedure TargetFieldChange(Sender: TObject);
     procedure StartFieldChange(Sender: TObject);
   private
-    function check_input():boolean;
     procedure window_setup();
     procedure dialog_setup();
     procedure interface_setup();
@@ -49,15 +48,10 @@ var MainWindow: TMainWindow;
 
 implementation
 
-function TMainWindow.check_input():boolean;
-begin
- Result:=(Self.SourceField.Text<>'') and (Self.TargetField.Text<>'');
-end;
-
 procedure TMainWindow.window_setup();
 begin
  Application.Title:='Simple data copier shell';
- Self.Caption:='Simple data copier shell 0.7.9';
+ Self.Caption:='Simple data copier shell 0.8.5';
  Self.BorderStyle:=bsDialog;
  Self.Font.Name:=Screen.MenuFont.Name;
  Self.Font.Size:=14;
@@ -77,17 +71,20 @@ begin
  Self.StartField.NumbersOnly:=True;
  Self.BlockField.NumbersOnly:=True;
  Self.SourceField.LabelPosition:=lpLeft;
- Self.TargetField.LabelPosition:=Self.SourceField.LabelPosition;
- Self.StartField.LabelPosition:=Self.SourceField.LabelPosition;
- Self.BlockField.LabelPosition:=Self.SourceField.LabelPosition;
+ Self.TargetField.LabelPosition:=lpLeft;
+ Self.StartField.LabelPosition:=lpLeft;
+ Self.BlockField.LabelPosition:=lpLeft;
  Self.SourceField.Enabled:=False;
- Self.TargetField.Enabled:=Self.SourceField.Enabled;
+ Self.TargetField.Enabled:=False;
+ Self.StartField.Enabled:=False;
+ Self.BlockField.Enabled:=False;
  Self.SourceField.Text:='';
- Self.TargetField.Text:=Self.SourceField.Text;
+ Self.TargetField.Text:='';
  Self.OpenButton.ShowHint:=False;
- Self.SetButton.ShowHint:=Self.OpenButton.ShowHint;
- Self.StartButton.ShowHint:=Self.OpenButton.ShowHint;
+ Self.SetButton.ShowHint:=False;
+ Self.StartButton.ShowHint:=False;
  Self.StartButton.Enabled:=False;
+ Self.SetButton.Enabled:=False;
 end;
 
 procedure TMainWindow.language_setup();
@@ -142,7 +139,7 @@ begin
 end;
 
 procedure do_job(const source:string;const target:string;const start:string;const stop:string);
-var messages:array[0..13] of string=('The input and output file names are the same','The operation was successfully completed','Cannot open the input file!','Cannot create or open the output file!','Cannot jump to the start offset!','Cannot get the current offset!','Cannot get the file size!','Cannot read data!','Cannot write data!','The start offset is invalid!','The block length is invalid!','The block length is too large!','Cannot decode an argument','Cannot allocate memory!');
+var messages:array[0..12] of string=('The operation was successfully completed','Cannot open the input file!','Cannot create or open the output file!','Cannot jump to the start offset!','Cannot get the current offset!','Cannot get the file size!','Cannot read data!','Cannot write data!','The start offset is invalid!','The block length is invalid!','The block length is too large!','Cannot decode an argument','Cannot allocate memory!');
 var id:Integer;
 var host,job,message:string;
 begin
@@ -168,18 +165,19 @@ end;
 
 procedure TMainWindow.SourceFieldChange(Sender: TObject);
 begin
- Self.StartButton.Enabled:=Self.check_input();
+ Self.SetButton.Enabled:=Self.SourceField.Text<>'';
 end;
 
 procedure TMainWindow.TargetFieldChange(Sender: TObject);
 begin
- Self.StartButton.Enabled:=Self.check_input();
+ Self.StartButton.Enabled:=Self.TargetField.Text<>'';
+ Self.StartField.Enabled:=Self.StartButton.Enabled;
+ Self.BlockField.Enabled:=Self.StartButton.Enabled;
 end;
 
 procedure TMainWindow.StartFieldChange(Sender: TObject);
 begin
  if Self.StartField.Text='' then Self.BlockField.Text:='';
- Self.BlockField.Enabled:=Self.StartField.Text<>'';
 end;
 
 procedure TMainWindow.OpenButtonClick(Sender: TObject);
