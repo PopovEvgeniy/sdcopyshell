@@ -51,7 +51,7 @@ implementation
 procedure TMainWindow.window_setup();
 begin
  Application.Title:='Simple data copier shell';
- Self.Caption:='Simple data copier shell 0.8.6';
+ Self.Caption:='Simple data copier shell 0.8.7';
  Self.BorderStyle:=bsDialog;
  Self.Font.Name:=Screen.MenuFont.Name;
  Self.Font.Size:=14;
@@ -170,6 +170,7 @@ end;
 
 procedure TMainWindow.TargetFieldChange(Sender: TObject);
 begin
+ if Self.TargetField.Text=Self.SourceField.Text then Self.TargetField.Clear();
  Self.StartButton.Enabled:=Self.TargetField.Text<>'';
  Self.StartField.Enabled:=Self.StartButton.Enabled;
  Self.BlockField.Enabled:=Self.StartButton.Enabled;
